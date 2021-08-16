@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/colors.scss';
+@import 'assets/css/font-sizes.scss';
+
+.button {
+  border-radius: 5px;
+}
