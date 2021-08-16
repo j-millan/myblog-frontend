@@ -12,6 +12,14 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
+  replaceParams(url: string, params: any = {}): string {
+    Object.keys(params).forEach((key) => {
+      url.replace(key, params[key])  
+    })
+
+    return url;
+  }
+
   post<RT>(path: string, data: any = {}): Observable<RT> {
     const url = `${this.API_URL}${path}`
     return this.http.post<RT>(url, data);
