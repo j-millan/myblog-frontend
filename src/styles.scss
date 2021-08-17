@@ -7,6 +7,18 @@ body {
 
 .btn {
   border-radius: 5px !important;
+
+  &.btn-blue {
+    background: $blue-2;
+    color: $white;
+  }
+
+  &.btn-turquoise {
+    background: $turquoise;
+    color: $white;
+  }
+}
+
 .card {
   background: $white;
   border-radius: 5px;
