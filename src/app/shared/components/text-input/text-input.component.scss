@@ -1,0 +1,38 @@
+@import 'src/assets/css/colors.scss';
+
+.cont {
+  height: 40px;
+  color: $gray-3;
+  
+  input {
+    height: 40px;
+    
+    border-radius: 5px;
+    border: 1.5px solid $gray-3;
+    color: $gray-3;
+  
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+  
+    &:focus {
+      border: 1.5px solid $gray-4;
+      color: $gray-4;
+      outline: none !important;
+      box-shadow: none !important; 
+
+      & + .fa {
+        color: $gray-4;
+      }
+    }
+
+    &.has-icon {
+      padding-left: 1.8rem !important;
+    }
+  }
+
+  .fa {
+    transform: translateY(-175%);
+    margin-left: 0.57rem !important
+  }
+}

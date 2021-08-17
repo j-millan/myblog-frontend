@@ -1,8 +1,16 @@
 @import 'assets/css/colors.scss';
 @import 'assets/css/font-sizes.scss';
 
+*, *:focus, *:hover{
+  outline:none;
+}
+
 body {
   background: $gray-2;
+}
+
+input::placeholder, input.control::placeholder {
+  color: $gray-3 !important;
 }
 
 .shadow-1 {
