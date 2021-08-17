@@ -1,9 +1,9 @@
-<div class="cont position-relative mb-3">
+<div class="cont position-relative">
   <input
     [formControl]='form.get(controlName)'
     class="form-control pe-2"
     [ngClass]="{'ps-2': !icon, 'has-icon': icon}"
-    type="text"
+    [type]="password ? 'password' : 'text'"
     [placeholder]="placeholder"
   >
   <i 

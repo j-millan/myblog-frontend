@@ -11,4 +11,5 @@ export class TextInputComponent {
   @Input() form: FormGroup;
   @Input() controlName: string;
   @Input() icon: string;
+  @Input() password: boolean = false;
 }
