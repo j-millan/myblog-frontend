@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { DataModule } from './data/data.module';
 import { SharedModule } from './shared/shared.module';
+import { BaseComponent } from './base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
