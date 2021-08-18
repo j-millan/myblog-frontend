@@ -14,7 +14,7 @@ export class ApiService {
 
   replaceParams(url: string, params: any = {}): string {
     Object.keys(params).forEach((key) => {
-      url.replace(key, params[key])  
+      url = url.replace(key, params[key]);
     })
 
     return url;
