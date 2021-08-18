@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     const requestData: LoginRequest = this.form.value;
     
     this.userService.login(requestData).subscribe((res) => {
-      console.debug(res.user);
+      console.debug(res);
     })
   }
 
