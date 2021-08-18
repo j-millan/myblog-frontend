@@ -7,6 +7,7 @@ import { User } from '../models/user';
 import { UserUpdate } from '../models/user-update';
 import { ApiService } from './api.service';
 import { TokenService } from './token.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +27,16 @@ export class UserService {
     private tokenService: TokenService,
   ) { }
 
-  login(data: LoginRequest): void {
-    this.api.post<LoginResponse>(
+  login(data: LoginRequest): Observable<LoginResponse> {
+    return this.api.post<LoginResponse>(
       `${this.URL_PREFIX}${this.LOGIN_PATH}`,
       data,
-    ).subscribe((response) => {
-      const token = response.token;
-      this.tokenService.setToken(token);
-    })
+    ).pipe(
+      tap((response) => {
+        const token = response.token;
+        this.tokenService.setToken(token);
+      }),
+    );
   }
 
   logout(): Observable<void> {
@@ -75,7 +78,3 @@ export class UserService {
     return this.api.delete(path);
   }
 }
-function tap(arg0: () => any): import("rxjs").OperatorFunction<void, void> {
-  throw new Error('Function not implemented.');
-}
-

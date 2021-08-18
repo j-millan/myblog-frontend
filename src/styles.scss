@@ -6,11 +6,15 @@
 }
 
 body {
-  background: $gray-2;
+  background: $gray-2 !important;
 }
 
 input::placeholder, input.control::placeholder {
   color: $gray-3 !important;
+}
+
+a {
+  color: $link !important;
 }
 
 .shadow-1 {
@@ -23,15 +27,30 @@ input::placeholder, input.control::placeholder {
   &.btn-blue {
     background: $blue-2;
     color: $white;
+
+    &:hover {
+      background: darken($color: $blue-2, $amount: 3);
+      color: $white;
+    }
   }
 
   &.btn-turquoise {
     background: $turquoise;
     color: $white;
+
+    &:hover {
+      background: darken($color: $turquoise, $amount: 3);
+      color: $white;
+    }
   }
 }
 
 .card {
   background: $white;
   border-radius: 5px;
+}
+
+.help-text {
+  color: $gray-3;
+  font-size: $p12;
 }
