@@ -1,13 +1,27 @@
 <div class="cont position-relative">
-  <input
-    [formControl]='form.get(controlName)'
-    class="form-control pe-2"
-    [ngClass]="{'ps-2': !icon, 'has-icon': icon}"
-    [type]="password ? 'password' : 'text'"
-    [placeholder]="placeholder"
-  >
+  <div class="input-group">
+    <input
+      [formControl]='form.get(controlName)'
+      class="form-control pe-2"
+      [ngClass]="{'ps-2': !icon, 'has-icon': icon, 'has-addon': addonText || addonIcon}"
+      [type]="password ? 'password' : 'text'"
+      [placeholder]="placeholder"
+    >
+  
+    <div class="input-group-append">
+      <button 
+        *ngIf="addonText || addonIcon"
+        class="addon-button btn btn-blue" 
+        (click)="onAddonClick()"
+      >
+        <span *ngIf="addonText">{{ addonText }}</span>
+        <i *ngIf="addonIcon" class="fa fa-{{ addonIcon }}"></i>    
+      </button>
+    </div>
+  </div>
+
   <i 
     *ngIf="icon"
-    class="fa fa-{{ icon }} position-absolute"
+    class="fa fa-{{ icon }} position-absolute icon"
   ></i>
 </div>

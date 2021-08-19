@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -12,4 +12,12 @@ export class TextInputComponent {
   @Input() controlName: string;
   @Input() icon: string;
   @Input() password: boolean = false;
+  @Input() addonText: string;
+  @Input() addonIcon: string;
+
+  @Output() addonClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  onAddonClick(): void {
+    this.addonClicked.emit();
+  }
 }

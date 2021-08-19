@@ -23,6 +23,7 @@ a {
 
 .myblog-title {
   font-family: 'Righteous';
+  color: $blue-2 !important;
 }
 
 .shadow-1 {
@@ -31,6 +32,11 @@ a {
 
 .btn {
   border-radius: 5px !important;
+
+  &:active, &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 
   &.btn-blue {
     background: $blue-2;

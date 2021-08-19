@@ -30,9 +30,23 @@
     &.has-icon {
       padding-left: 1.9rem !important;
     }
+
+    &.has-addon {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
   }
 
-  .fa {
+  .addon-button {
+    height: 40px;
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+    
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .icon {
     font-size: $p18;
     transform: translateY(-165%);
     margin-left: 0.53rem !important
