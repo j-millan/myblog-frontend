@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   declarations: [
     TextInputComponent
@@ -18,6 +21,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     TextInputComponent,
   ],
 })

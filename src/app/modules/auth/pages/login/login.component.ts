@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/core/models/login-request';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private router: Router,
   ) { }
   
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
     const requestData: LoginRequest = this.form.value;
     
     this.userService.login(requestData).subscribe((res) => {
-      console.debug(res);
+      this.router.navigateByUrl('/home');
     })
   }
 

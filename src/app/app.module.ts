@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { DataModule } from './data/data.module';
 import { SharedModule } from './shared/shared.module';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { BaseComponent } from './base.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { BaseComponent } from './base.component';
     SharedModule,
     CoreModule,
     DataModule,
+    LayoutModule,
     HttpClientModule,
   ],
   providers: [],
