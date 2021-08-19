@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
 import { LoginRequest } from '../models/login-request';
 import { LoginResponse } from '../models/login-response';
 import { RegisterRequest } from '../models/register-request';
@@ -7,31 +7,50 @@ import { User } from '../models/user';
 import { UserUpdate } from '../models/user-update';
 import { ApiService } from './api.service';
 import { TokenService } from './token.service';
-import { switchMap, tap } from 'rxjs/operators';
+import { startWith, switchMap, tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  URL_PREFIX = 'auth';
+  private readonly URL_PREFIX = 'auth';
   
-  LOGIN_PATH = '/login'
-  REGISTER_PATH = '/register'
-  LOGOUT_PATH = '/logout'
+  private readonly LOGIN_PATH = '/login'
+  private readonly REGISTER_PATH = '/register'
+  private readonly LOGOUT_PATH = '/logout'
 
-  USER_LIST_PATH = '/users'
-  USER_DETAIL_UPDATE_DELETE_PATH = '/users/userId'
+  private readonly USER_LIST_PATH = '/users'
+  private readonly USER_DETAIL_UPDATE_DELETE_PATH = '/users/userId'
 
-  isAuthenticatedSubject: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
-  isAuthenticated$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
+  isAuthenticatedSubject: ReplaySubject<boolean> = 
+    new ReplaySubject<boolean>(1);
+  isAuthenticated$: Observable<boolean> = 
+    this.isAuthenticatedSubject.asObservable();
   
-  authenticatedUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>({} as User);
-  authenticatedUser$: Observable<User> = this.authenticatedUserSubject.asObservable();
+  authenticatedUserSubject: BehaviorSubject<User> = 
+    new BehaviorSubject<User>({} as User);
+  authenticatedUser$: Observable<User> = 
+    this.authenticatedUserSubject.asObservable();
 
   constructor(
     private api: ApiService,
     private tokenService: TokenService,
-  ) { }
+    private authService: AuthService,
+  ) {
+    this.isAuthenticated$ = this.isAuthenticated$
+      .pipe(
+        startWith(this.tokenService.getToken() ? true : false),
+      );
+    
+    const userId = this.authService.getAuthUserId();
+    
+    if (userId) {
+      this.getUser(userId).subscribe((user) =>
+        (this.authenticatedUserSubject.next(user)),
+      );
+    }
+  }
 
   login(data: LoginRequest): Observable<User> {
     return this.api.post<LoginResponse>(
@@ -46,6 +65,7 @@ export class UserService {
         this.getUser(response.user.id),
       ),
       tap((user) => {
+        this.authService.saveAuthUserId(user.id);
         this.isAuthenticatedSubject.next(true);
         this.authenticatedUserSubject.next(user);
       })
@@ -58,6 +78,7 @@ export class UserService {
     ).pipe(
       tap(() => {
         this.tokenService.destroyToken();
+        this.authService.destroyAuthUserId();
         this.isAuthenticatedSubject.next(false);
         this.authenticatedUserSubject.next({} as User);
       }),

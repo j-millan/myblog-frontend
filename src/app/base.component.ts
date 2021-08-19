@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { User } from './core/models/user';
 import { UserService } from './core/services/user.service';
 
@@ -10,7 +10,7 @@ import { UserService } from './core/services/user.service';
 export class BaseComponent {
   currentUser$: Observable<User>;
   
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     this.getCurrentUser();
   }
 

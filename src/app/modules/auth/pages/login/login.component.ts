@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
   }
 
   attemptLogin(): void {
-    console.debug(123);
     const requestData: LoginRequest = this.form.value;
     
     this.userService.login(requestData).subscribe((res) => {
