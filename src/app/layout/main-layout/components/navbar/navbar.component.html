@@ -15,7 +15,7 @@
     </li>
   </ul>
 
-  <form [formGroup]="searchForm" class="form-inline my-2">
+  <form [formGroup]="searchForm" class="form-inline my-2 me-1">
     <app-text-input
       style="display: inline-block; max-width: 215px !important;"
       [form]="searchForm"
@@ -25,4 +25,18 @@
       (addonClicked)='performSearch()'
     ></app-text-input>
   </form>
+
+  <ng-container *ngIf="currentUser$ | async as user">
+    <button class="ms-2 btn btn-turquoise add-button">
+      <i class="fa fa-plus"></i>
+    </button>
+  </ng-container>
+
+  <p 
+    class="hamburguer ms-3 me-1 cursor-pointer mb-0"
+    [ngClass]="{'active': isMenuActive}"
+    (click)="menuClicked()"
+  >
+    <i class="fa fa-bars is-28"></i>
+  </p>
 </nav>

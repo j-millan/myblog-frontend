@@ -11,12 +11,37 @@
     line-height: 48px;
   }
 
-  .nav-link {
-    color: $gray-4 !important;
-    font-size: $p24;
+  .nav-item {
+    display: flex;
 
-    &:hover {
-      color: darken($color: $gray-4, $amount: 5) !important;
+    .nav-link {
+      color: $gray-4 !important;
+      font-size: $p24;
+      align-self: flex-end;
+      padding-bottom: 0 !important;
+      
+      &:hover {
+        color: darken($color: $gray-4, $amount: 5) !important;
+      }
+    }
+  }
+
+  .add-button {
+    height: 40px;
+    width: 40px;
+  }
+
+  .hamburguer {
+    color: $gray-4;
+    display: flex;
+
+    .fa {
+      align-self: flex-end;
+      transition: all 300ms ease-in-out;
+    }
+
+    &.active .fa {
+      transform: rotate(-90deg);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseComponent } from 'src/app/base.component';
+import { User } from 'src/app/core/models/user';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class NavbarComponent extends BaseComponent {
 
   searchForm: FormGroup;
+  isMenuActive: boolean = false;
 
   constructor(
     userService: UserService,
@@ -27,5 +29,9 @@ export class NavbarComponent extends BaseComponent {
 
   performSearch(): void {
     console.debug(this.searchForm.value);
+  }
+
+  menuClicked(): void {
+    this.isMenuActive = !this.isMenuActive;
   }
 }
