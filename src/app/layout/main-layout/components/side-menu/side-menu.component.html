@@ -53,14 +53,17 @@
   
   <ng-template #noAuth>
     <div class="top p-3">
-      <span class="is-20 username ms-2">Unauthenticated</span>
+      <span class="is-20 username ms-2">
+        <i class="fa fa-user-circle me-2"></i>
+        Unauthenticated
+      </span>
     </div>
   
     <div class="separator"></div>
   
     <ul class="menu px-4 pt-1">
       <li class="menu-item cursor-pointer my-3" [routerLink]="['/auth/login']">
-        <i class="fa fa-user-circle"></i>
+        <i class="fa fa-sign-in-alt"></i>
         <span class="ms-4">Log in</span>
       </li>
   
