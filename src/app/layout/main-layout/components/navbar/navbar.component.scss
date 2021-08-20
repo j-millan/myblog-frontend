@@ -21,7 +21,7 @@
       padding-bottom: 0 !important;
       
       &:hover {
-        color: darken($color: $gray-5, $amount: 5) !important;
+        color: darken($color: $gray-5, $amount: 7) !important;
       }
     }
   }
@@ -42,6 +42,10 @@
 
     &.active .fa {
       transform: rotate(-90deg);
+    }
+
+    &:hover {
+      color: darken($color: $gray-5, $amount: 7) !important;
     }
   }
 }

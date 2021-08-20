@@ -37,6 +37,10 @@
     .menu-item, .fa {
       font-size: $p20;
       color: $gray-5;
+
+      &:hover, &:hover > * {
+        color: darken($color: $gray-5, $amount: 7) !important;
+      }
     }
 
     .logout-option {
@@ -45,6 +49,10 @@
       .fa {
         color: $red-1;
         transform: rotate(180deg);
+      }
+
+      &:hover, &:hover > * {
+        color: darken($color: $red-1, $amount: 7) !important;
       }
     }
   }
