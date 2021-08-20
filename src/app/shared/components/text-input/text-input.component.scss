@@ -22,9 +22,6 @@
       outline: none !important;
       box-shadow: none !important; 
 
-      & + .fa {
-        color: $gray-5;
-      }
     }
 
     &.has-icon {
@@ -35,6 +32,10 @@
       border-top-right-radius: 0px !important;
       border-bottom-right-radius: 0px !important;
     }
+  }
+
+  .fa.active {
+    color: $gray-5;
   }
 
   .addon-button {

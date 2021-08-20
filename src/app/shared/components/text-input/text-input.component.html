@@ -6,6 +6,8 @@
       [ngClass]="{'ps-2': !icon, 'has-icon': icon, 'has-addon': addonText || addonIcon}"
       [type]="password ? 'password' : 'text'"
       [placeholder]="placeholder"
+      (focusin)="isFocused=true"
+      (focusout)="isFocused=false"
     >
   
     <div class="input-group-append">
@@ -23,5 +25,6 @@
   <i 
     *ngIf="icon"
     class="fa fa-{{ icon }} position-absolute icon"
+    [ngClass]="{'active': isFocused}"
   ></i>
 </div>

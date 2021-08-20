@@ -17,6 +17,8 @@ export class TextInputComponent {
 
   @Output() addonClicked: EventEmitter<void> = new EventEmitter<void>();
 
+  isFocused: boolean = false;
+
   onAddonClick(): void {
     this.addonClicked.emit();
   }
