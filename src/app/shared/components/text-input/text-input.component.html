@@ -1,5 +1,5 @@
 <div class="cont position-relative">
-  <div class="input-group">
+  <div [ngClass]="{'input-group': addonText || addonIcon}">
     <input
       [formControl]='form.get(controlName)'
       class="form-control pe-2"
