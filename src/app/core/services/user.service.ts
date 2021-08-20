@@ -85,14 +85,11 @@ export class UserService {
     );
   }
 
-  register(data: RegisterRequest): void {
-    this.api.post<LoginResponse>(
+  register(data: RegisterRequest): Observable<User> {
+    return this.api.post<User>(
       `${this.URL_PREFIX}${this.REGISTER_PATH}`,
       data,
-    ).subscribe((response) => {
-      const token = response.token;
-      this.tokenService.setToken(token);
-    })
+    )
   }
 
   getUsers(): Observable<User[]> {

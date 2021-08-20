@@ -1,19 +1,19 @@
 <div class="card p-4 shadow-1 mb-2">
   <div class="card-body p-4 pt-3">
     <h2 class="card-title text-center mb-4 is-38">LOG IN</h2>
-    <form [formGroup]="form" *ngIf="form" (ngSubmit)="attemptLogin()">  
+    <form [formGroup]="loginForm" *ngIf="loginForm" (ngSubmit)="attemptLogin()">  
 
       <app-text-input
         class="d-block mb-3"
-        [form]='form'
-        [controlName]='INPUT_USERNAME'
+        [form]="loginForm"
+        [controlName]="FIELDS.USERNAME"
         [icon]="'user'" 
         [placeholder]="'Username'"
       ></app-text-input>
 
       <app-text-input 
-        [form]='form'
-        [controlName]='INPUT_PASSWORD'
+        [form]="loginForm"
+        [controlName]="FIELDS.PASSWORD"
         [icon]="'lock'" 
         [placeholder]="'Password'"
         [password]="true"
@@ -29,5 +29,5 @@
 
 <small class="d-block text-center mt-2 help-text">
   New to myblog?
-  Sign up <a href="#">here</a>.
+  Sign up <a [routerLink]="['/auth/sign-up']">here</a>.
 </small>

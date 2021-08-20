@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/core/models/login-request';
 import { UserService } from 'src/app/core/services/user.service';
+import { AuthConstants } from '../../constants';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,9 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  form?: FormGroup;
+  loginForm: FormGroup;
+  readonly FIELDS = AuthConstants.LOGIN_FIELDS;
 
-  INPUT_USERNAME = 'username';
-  INPUT_PASSWORD = 'password';
   
   constructor(
     private fb: FormBuilder,
@@ -21,34 +21,35 @@ export class LoginComponent implements OnInit {
     private router: Router,
   ) {
     this.userService.isAuthenticated$.subscribe((auth) => {
-      console.debug(auth);
       if (auth) {
         this.goToHome();
       }
-    })
+    });
   }
   
   ngOnInit(): void {
     this.buildForm();
 
-    this.form.valueChanges.subscribe((_) => (console.debug(this.form.value)))
+    this.loginForm.valueChanges.subscribe((_) => (console.debug(this.loginForm.value)))
   }
 
   private buildForm(): void {
     const group: any = {};
 
-    group[this.INPUT_USERNAME] = [null, Validators.required];
-    group[this.INPUT_PASSWORD] = [null, Validators.required];
+    group[this.FIELDS.USERNAME] = [null, Validators.required];
+    group[this.FIELDS.PASSWORD] = [null, Validators.required];
 
-    this.form = this.fb.group(group);
+    this.loginForm = this.fb.group(group);
   }
 
   attemptLogin(): void {
-    const requestData: LoginRequest = this.form.value;
+    const requestData: LoginRequest = this.loginForm.value;
     
-    this.userService.login(requestData).subscribe((res) => {
-      this.goToHome();
-    })
+    this.userService
+      .login(requestData)
+      .subscribe((res) => 
+        (this.goToHome()),
+      );
   }
 
   goToHome(): void  {

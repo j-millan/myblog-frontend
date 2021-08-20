@@ -1,0 +1,66 @@
+<div class="card p-4 shadow-1 mb-2">
+  <div class="card-body p-4 pt-3">
+    <h2 class="card-title text-center mb-4 is-38">SIGN UP</h2>
+    <form [formGroup]="registerForm" *ngIf="registerForm" (ngSubmit)="attemptSignUp()">  
+
+      <app-text-input
+        class="d-block mb-3"
+        [form]="registerForm"
+        [controlName]="FIELDS.USERNAME"
+        [icon]="'user'" 
+        [placeholder]="'Username'"
+      ></app-text-input>
+
+      <div class="row form-row mb-3">
+        <app-text-input 
+          class="col pe-1"
+          [form]="registerForm"
+          [controlName]="FIELDS.FIRST_NAME"
+          [icon]="'signature'" 
+          [placeholder]="'First name'"
+        ></app-text-input>
+        <app-text-input 
+          class="col ps-1"
+          [form]="registerForm"
+          [controlName]="FIELDS.LAST_NAME"
+          [placeholder]="'Last name'"
+        ></app-text-input>
+      </div>
+
+      <app-text-input
+        class="d-block mb-3"
+        [form]="registerForm"
+        [controlName]="FIELDS.EMAIL"
+        [icon]="'envelope'" 
+        [placeholder]="'E-mail'"
+      ></app-text-input>
+
+      <div class="row form-row mb-3">
+        <app-text-input 
+          class="col pe-1"
+          [form]="registerForm"
+          [controlName]="FIELDS.PASSWORD"
+          [icon]="'lock'" 
+          [placeholder]="'Password'"
+          [password]="true"
+        ></app-text-input>
+        <app-text-input 
+          class="col ps-1"
+          [form]="registerForm"
+          [controlName]="FIELDS.PASSWORD_CONFIRMATION"
+          [placeholder]="'Password confirmation'"
+          [password]="true"
+        ></app-text-input>
+      </div>
+
+      <button type="submit" class="btn btn-blue w-100 mt-3">
+        SIGN UP
+      </button>
+    </form>
+  </div>
+</div>
+
+<small class="d-block text-center mt-2 help-text">
+  Already have an account?
+  <a [routerLink]="['/auth/login']">Log in</a>.
+</small>
