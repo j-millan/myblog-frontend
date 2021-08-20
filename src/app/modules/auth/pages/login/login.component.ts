@@ -19,7 +19,14 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-  ) { }
+  ) {
+    this.userService.isAuthenticated$.subscribe((auth) => {
+      console.debug(auth);
+      if (auth) {
+        this.goToHome();
+      }
+    })
+  }
   
   ngOnInit(): void {
     this.buildForm();
@@ -40,8 +47,12 @@ export class LoginComponent implements OnInit {
     const requestData: LoginRequest = this.form.value;
     
     this.userService.login(requestData).subscribe((res) => {
-      this.router.navigateByUrl('/home');
+      this.goToHome();
     })
+  }
+
+  goToHome(): void  {
+    this.router.navigateByUrl('/home');
   }
 
 }
