@@ -1,0 +1,73 @@
+<div 
+  class="sidebar position-fixed"
+  [ngClass]="{'open': isOpen}"
+>
+  <ng-container *ngIf="currentUser$ | async as user; else noAuth">
+    <div class="top row p-3">
+      <img
+        class="col profile-picture img-circle d-inline ms-2 px-0"
+        [src]="getFileUrl(user.profile?.profile_picture)" 
+        alt="user picture"
+      >
+
+      <div class="col px-0 d-inline">
+        <span class="is-20 username ms-2">{{ user.first_name }}  {{ user.last_name }}</span>
+        <span class="is-16 username ms-2">@{{ user.username }}</span>
+      </div>
+    </div>
+  
+    <div class="separator"></div>
+
+    <ul class="menu px-4 pt-1">
+      <li class="menu-item cursor-pointer my-3 d-flex align-items-center">
+        <i class="fa fa-user-circle"></i>
+        <span class="ms-4">Profile</span>
+        <i class="fa fa-chevron-right ms-auto"></i>
+      </li>
+  
+      <li class="menu-item cursor-pointer my-3 d-flex align-items-center">
+        <i class="fa fa-edit"></i>
+        <span class="ms-4">Edit profile</span>
+        <i class="fa fa-chevron-right ms-auto"></i>
+      </li>
+
+      <li class="menu-item cursor-pointer my-3 d-flex align-items-center">
+        <i class="fa fa-cog"></i>
+        <span class="ms-4">Settings</span>
+        <i class="fa fa-chevron-right ms-auto"></i>
+      </li>
+    </ul>
+
+    <div class="separator"></div>
+
+    <ul class="menu px-4 pt-1">
+      <li 
+        class="menu-item cursor-pointer my-3 d-flex align-items-center logout-option"
+        (click)="onLogoutClick()"
+      >
+        <i class="fa fa-sign-out-alt"></i>
+        <span class="ms-4">Log out</span>
+      </li>
+    </ul>   
+  </ng-container>
+  
+  <ng-template #noAuth>
+    <div class="top p-3">
+      <span class="is-20 username ms-2">Unauthenticated</span>
+    </div>
+  
+    <div class="separator"></div>
+  
+    <ul class="menu px-4 pt-1">
+      <li class="menu-item cursor-pointer my-3" [routerLink]="['/auth/login']">
+        <i class="fa fa-user-circle"></i>
+        <span class="ms-4">Log in</span>
+      </li>
+  
+      <li class="menu-item cursor-pointer my-3">
+        <i class="fa fa-edit"></i>
+        <span class="ms-4">Sign up</span>
+      </li>
+    </ul>
+  </ng-template>
+</div>

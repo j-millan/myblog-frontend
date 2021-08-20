@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { constants } from './constants';
 import { User } from './core/models/user';
+import { ApiService } from './core/services/api.service';
 import { UserService } from './core/services/user.service';
 
 @Component({
@@ -23,5 +25,9 @@ export class BaseComponent {
         isAuthenticated ? user : null,
       ),
     );
+  }
+
+  getFileUrl(path: string): string {
+    return constants.API_URL + path.substr(1);
   }
 }

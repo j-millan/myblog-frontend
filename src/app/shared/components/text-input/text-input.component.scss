@@ -3,27 +3,27 @@
 
 .cont {
   height: 40px;
-  color: $gray-3;
+  color: $gray-4;
   
   input {
     height: 40px;
     
     border-radius: 5px;
-    border: 1.5px solid $gray-3;
-    color: $gray-3;
+    border: 1.5px solid $gray-4;
+    color: $gray-4;
   
     font-weight: 300;
     font-size: 18px;
     line-height: 18px;
   
     &:focus {
-      border: 1.5px solid $gray-4;
-      color: $gray-4;
+      border: 1.5px solid $gray-5;
+      color: $gray-5;
       outline: none !important;
       box-shadow: none !important; 
 
       & + .fa {
-        color: $gray-4;
+        color: $gray-5;
       }
     }
 

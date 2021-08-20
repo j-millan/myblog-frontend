@@ -1,0 +1,51 @@
+@import 'src/assets/css/colors.scss';
+@import 'src/assets/css/font-sizes.scss';
+
+.sidebar {
+  width: 270px;
+  height: 100%;
+
+  background: $gray-1;
+  box-shadow: -2px 0px 6px hsla(0, 0%, 0%, 0.12);
+  
+  right: -270px;
+  transition: right 300ms ease;
+
+  &.open {
+    right: 0px;
+  }
+
+  .profile-picture {
+    height: 55px !important;
+    max-width: 55px !important;
+
+    &.anonymous {
+      filter: invert(67%);
+    }
+  }
+
+  .username {
+    color: $gray-5;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .menu {
+    list-style: none;
+    
+    .menu-item, .fa {
+      font-size: $p20;
+      color: $gray-5;
+    }
+
+    .logout-option {
+      color: $red-1;
+
+      .fa {
+        color: $red-1;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

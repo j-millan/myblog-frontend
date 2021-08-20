@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BaseComponent } from 'src/app/base.component';
 import { User } from 'src/app/core/models/user';
@@ -11,6 +11,8 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class NavbarComponent extends BaseComponent {
 
+  @Output() menuButtonClicked = new EventEmitter<boolean>();
+  
   searchForm: FormGroup;
   isMenuActive: boolean = false;
 
@@ -33,5 +35,6 @@ export class NavbarComponent extends BaseComponent {
 
   menuClicked(): void {
     this.isMenuActive = !this.isMenuActive;
+    this.menuButtonClicked.emit(this.isMenuActive);
   }
 }

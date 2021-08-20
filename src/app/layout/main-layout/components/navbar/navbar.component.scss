@@ -15,13 +15,13 @@
     display: flex;
 
     .nav-link {
-      color: $gray-4 !important;
+      color: $gray-5 !important;
       font-size: $p24;
       align-self: flex-end;
       padding-bottom: 0 !important;
       
       &:hover {
-        color: darken($color: $gray-4, $amount: 5) !important;
+        color: darken($color: $gray-5, $amount: 5) !important;
       }
     }
   }
@@ -32,7 +32,7 @@
   }
 
   .hamburguer {
-    color: $gray-4;
+    color: $gray-5;
     display: flex;
 
     .fa {

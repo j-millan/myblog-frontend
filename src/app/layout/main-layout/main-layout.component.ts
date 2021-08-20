@@ -11,6 +11,8 @@ export class MainLayoutComponent
 extends BaseComponent
 implements OnInit {
 
+  isSideMenuOpen: boolean = false;
+
   constructor(
     userService: UserService,
   ) { 

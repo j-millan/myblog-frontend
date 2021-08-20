@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { constants } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL = 'http://0.0.0.0:8000/';
+  API_URL = constants.API_URL;
 
   constructor(
     private http: HttpClient
