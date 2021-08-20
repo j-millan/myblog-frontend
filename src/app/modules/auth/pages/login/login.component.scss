@@ -1,13 +1,5 @@
 @import 'src/assets/css/colors.scss';
 
-h1 {
-  text-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.1);
-}
-
-.row {
-  transform: translateY(50%);
-}
-
 .card-title {
   color: $gray-5;
   font-weight: 400;
