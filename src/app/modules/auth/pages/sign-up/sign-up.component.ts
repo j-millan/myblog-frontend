@@ -12,6 +12,7 @@ import { AuthConstants } from '../../constants';
 export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
+  formErrors: any = null;
   readonly FIELDS = AuthConstants.SIGN_UP_FIELDS;
   
   constructor(
@@ -46,8 +47,11 @@ export class SignUpComponent implements OnInit {
 
     this.userService
       .register(requestData)
-      .subscribe((res) =>
-        (this.router.navigateByUrl('/auth/login')),
+      .subscribe(
+        (res) =>
+          (this.router.navigateByUrl('/auth/login')),
+        (res) =>
+          (this.formErrors = res.error),
       );
   }
 

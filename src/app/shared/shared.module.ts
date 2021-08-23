@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { RouterModule } from '@angular/router';
+import { FormErrorAlertComponent } from './components/form-error-alert/form-error-alert.component';
 
 
 
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   declarations: [
-    TextInputComponent
+    TextInputComponent,
+    FormErrorAlertComponent,
   ],
   exports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
     TextInputComponent,
+    FormErrorAlertComponent,
   ],
 })
 export class SharedModule { }

@@ -12,6 +12,7 @@ import { AuthConstants } from '../../constants';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  errors: any;
   readonly FIELDS = AuthConstants.LOGIN_FIELDS;
 
   
@@ -29,8 +30,6 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
     this.buildForm();
-
-    this.loginForm.valueChanges.subscribe((_) => (console.debug(this.loginForm.value)))
   }
 
   private buildForm(): void {
@@ -47,8 +46,11 @@ export class LoginComponent implements OnInit {
     
     this.userService
       .login(requestData)
-      .subscribe((res) => 
-        (this.goToHome()),
+      .subscribe(
+        (res) => 
+          (this.goToHome()),
+        (res) =>
+          (this.errors = res.error),
       );
   }
 

@@ -75,6 +75,15 @@ a {
   border-radius: 5px;
 }
 
+.alert {
+  border-color: lighten($color: $red-3, $amount: 15) !important;
+
+  &.alert-danger {
+    background: $red-1;
+    color: $red-3;
+  }
+}
+
 .img-circle {
   border-radius: 100% !important;
 }
