@@ -44,15 +44,15 @@
     }
 
     .logout-option {
-      color: $red-1;
+      color: $red-2;
 
       .fa {
-        color: $red-1;
+        color: $red-2;
         transform: rotate(180deg);
       }
 
       &:hover, &:hover > * {
-        color: darken($color: $red-1, $amount: 7) !important;
+        color: darken($color: $red-2, $amount: 7) !important;
       }
     }
   }
