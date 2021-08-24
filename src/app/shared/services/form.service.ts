@@ -37,18 +37,15 @@ export class FormService {
   replaceError(error: any): string {
     let newErr = '';
 
-    if (error.length) {
-      error.forEach((err) => {
-        err = this.REPLACE_ERRORS[err]
-          ? this.REPLACE_ERRORS[err]
-          : err;
-
+    if (Array.isArray(error)) {
+      error.forEach((err: string) => {
+        err = this.replaceError(err);
         newErr = newErr.concat(` ${err}`).trim();
       });
     } else {
       newErr = this.REPLACE_ERRORS[error]
           ? this.REPLACE_ERRORS[error]
-          : newErr;
+          : error;
     }
 
     return newErr.toLowerCase();
