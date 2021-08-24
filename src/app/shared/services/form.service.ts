@@ -7,13 +7,14 @@ export class FormService {
   constructor() {}
 
   readonly REPLACE_NAMES = {
-    'password2': 'password confirmation',
+    password2: 'password confirmation',
   };
 
   readonly REPLACE_ERRORS = {
-    'This field may not be null.':
-      'This field is required.',
-  }
+    'This field may not be null.': 'This field is required.',
+    'This field may not be blank.': 'This field is required.',
+    'Password fields did not match.': `Password fields didn't match.`,
+  };
 
   capitalizeFieldNames(errors: { [key: string]: any }): { [key: string]: any } {
     const newObj: any = {};
@@ -21,10 +22,8 @@ export class FormService {
     Object.keys(errors).forEach((key) => {
       let newValue = this.replaceError(errors[key]);
 
-      let newKey = this.REPLACE_NAMES[key]
-        ? this.REPLACE_NAMES[key]
-        : key;
-        
+      let newKey = this.REPLACE_NAMES[key] ? this.REPLACE_NAMES[key] : key;
+
       newKey = newKey.replace('_', ' ');
       newKey = newKey[0].toUpperCase() + newKey.substr(1).toLowerCase();
 
@@ -43,9 +42,7 @@ export class FormService {
         newErr = newErr.concat(` ${err}`).trim();
       });
     } else {
-      newErr = this.REPLACE_ERRORS[error]
-          ? this.REPLACE_ERRORS[error]
-          : error;
+      newErr = this.REPLACE_ERRORS[error] ? this.REPLACE_ERRORS[error] : error;
     }
 
     return newErr.toLowerCase();

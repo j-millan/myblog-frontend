@@ -76,7 +76,7 @@ a {
 }
 
 .alert {
-  border-color: lighten($color: $red-3, $amount: 15) !important;
+  border: none !important;
 
   &.alert-danger {
     background: $red-1;

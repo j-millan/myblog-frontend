@@ -1,12 +1,12 @@
-<div class="alert alert-danger mb-1 mt-2 py-1 px-2" *ngIf="errors">
-  <div class="row">
+<div class="alert alert-danger mb-1 mt-2 py-2" *ngIf="errors">
+  <div class="row px-3">
     <div class="col icon">
       <i class="fa fa-exclamation-circle"></i>
     </div>
     <div class="col pt-1">
       <small 
-        *ngFor="let error of errors | keyvalue"
-        class="d-block mb-1"
+        *ngFor="let error of errors | keyvalue; last as isLast"
+        class="d-block"
       >
         <b>{{ error.key }}:</b> {{ error.value }}
       </small>
