@@ -1,19 +1,18 @@
-<div class="container px-5">
+<!-- CONTENT -->
+<div class="col-8">
+
   <div class="row">
-    <!-- CONTENT -->
-    <div class="col-8">
-
-      <div class="row">
-        <div class="col">
-          <app-blog-post-card></app-blog-post-card>
-        </div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-
+    <div class="col">
+      <app-blog-post-card
+        *ngIf="blogPost$ | async as blogPost"
+        [blogPost]="blogPost"
+      ></app-blog-post-card>
     </div>
-
-    <!-- ASIDE -->
-    <div class="col-4"></div>
+    <div class="col"></div>
+    <div class="col"></div>
   </div>
+
 </div>
+
+<!-- ASIDE -->
+<div class="col-4"></div>
