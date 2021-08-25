@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { RouterModule } from '@angular/router';
 import { FormErrorAlertComponent } from './components/form-error-alert/form-error-alert.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -14,6 +15,7 @@ import { FormErrorAlertComponent } from './components/form-error-alert/form-erro
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    NgbModule,
   ],
   declarations: [
     TextInputComponent,
@@ -23,6 +25,7 @@ import { FormErrorAlertComponent } from './components/form-error-alert/form-erro
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     RouterModule,
     TextInputComponent,
     FormErrorAlertComponent,
