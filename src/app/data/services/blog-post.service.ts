@@ -21,4 +21,8 @@ export class BlogPostService {
 
     return this.api.get<BlogPost>(path);
   }
+
+  getBlogPosts(): Observable<BlogPost[]> {
+    return this.api.get<BlogPost[]>(this.BLOG_POST_LIST_CREATE_PATH);
+  }
 }
