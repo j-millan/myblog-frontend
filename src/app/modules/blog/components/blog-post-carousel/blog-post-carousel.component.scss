@@ -1,0 +1,48 @@
+@import 'src/assets/css/colors.scss';
+
+.card {
+  height: 24rem;
+  overflow: hidden;
+
+  .thumbnail {
+    height: 24rem;
+    width: 70% !important;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .summary {
+    width: 30% !important;
+    padding-left: 1.3rem;
+
+    .category, .introduction {
+      color: $gray-5; 
+    }
+
+    .title {
+      color: $gray-6;
+      line-height: 1.4rem;
+    }
+    
+    .introduction {
+      line-height: 1.1rem;
+    }
+
+    .arrows {
+      justify-content: flex-start;
+      align-content: center;
+      
+      bottom: 0;
+
+      .fa {
+        color: $gray-6;
+      }
+
+      .post-count {
+        color: #646464;
+      }
+    }
+  }
+}

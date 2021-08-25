@@ -1,1 +1,28 @@
-<p>blog-post-carousel works!</p>
+<div class="card p-0">
+  <div class="row">
+    <div 
+      class="thumbnail px-2"
+      style="background-image: url('{{ getFileUrl(currentPost.thumbnail_url) }}');"
+    ></div>
+
+    <div class="summary pt-5 pb-2 pe-5">
+      <small class="category is-12 mb-2 d-inline-block">{{ currentPost.categories[0].name | uppercase }}</small>
+      <p class="title is-20">{{ currentPost.title }}</p>
+      <p class="introduction is-14">{{ currentPost.introduction }}</p>
+
+      <div class="arrows position-absolute mb-4 d-flex">
+        <i 
+          class="fa fa-chevron-left is-20 me-2 cursor-pointer"
+          (click)="previousPost()"
+          ></i>
+        <i 
+          class="fa fa-chevron-right is-20 cursor-pointer"
+          (click)="nextPost()"
+        ></i>
+        <small class="post-count ms-2">
+          {{ currentIndex + 1 }} of {{ blogPosts.length }}
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
