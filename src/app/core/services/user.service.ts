@@ -14,14 +14,14 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
-  private readonly URL_PREFIX = 'auth';
+  private readonly URL_PREFIX = 'auth/';
   
-  private readonly LOGIN_PATH = '/login'
-  private readonly REGISTER_PATH = '/register'
-  private readonly LOGOUT_PATH = '/logout'
+  private readonly LOGIN_PATH = 'login'
+  private readonly REGISTER_PATH = 'register'
+  private readonly LOGOUT_PATH = 'logout'
 
-  private readonly USER_LIST_PATH = '/users'
-  private readonly USER_DETAIL_UPDATE_DELETE_PATH = '/users/userId'
+  private readonly USER_LIST_PATH = 'users'
+  private readonly USER_DETAIL_UPDATE_DELETE_PATH = 'users/userId'
 
   isAuthenticatedSubject: ReplaySubject<boolean> = 
     new ReplaySubject<boolean>(1);

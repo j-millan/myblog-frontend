@@ -8,8 +8,8 @@ import { BlogPost } from '../models/blog-post';
 })
 export class BlogPostService {
 
-  readonly BLOG_POST_LIST_CREATE_PATH = '/blog-posts';
-  readonly BLOG_POST_DETAIL_UPDATE_DELETE_PATH = '/blog-posts/blogPostId';
+  readonly BLOG_POST_LIST_CREATE_PATH = 'blog-posts';
+  readonly BLOG_POST_DETAIL_UPDATE_DELETE_PATH = 'blog-posts/blogPostId';
   
   constructor(private api: ApiService) { }
 
