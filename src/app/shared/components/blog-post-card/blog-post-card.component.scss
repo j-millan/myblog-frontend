@@ -1,0 +1,49 @@
+@import 'src/assets/css/colors.scss';
+
+.card {
+  .thumbnail {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 9em;
+  }
+
+  .card-title {
+    color: $gray-6; 
+  }
+
+  .introduction {
+    color: $gray-5;
+  }
+
+  .bottom {
+    .icons {
+      color: $gray-5;
+      float: left;
+      cursor: pointer;
+
+      .fa {
+        margin-right: 0.2rem;
+      }
+    }
+    
+    .read-more {
+      color: $white;
+      background: $blue-1;
+      border-radius: 10px;
+      
+      padding-top: .15rem!important;
+      padding-bottom: .16rem!important;
+  
+      float: right;
+  
+      &:hover {
+        background: darken($color: $blue-1, $amount: 3);
+      }
+    }
+  }
+}

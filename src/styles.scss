@@ -70,9 +70,14 @@ a {
   }
 }
 
+.btn, a, .cursor-pointer {
+  transition: all 300ms ease;
+}
+
 .card {
   background: $white;
-  border-radius: 5px;
+  border-radius: 5px !important;
+  border: none !important;
 }
 
 .alert {
@@ -91,3 +96,6 @@ a {
 .cursor-pointer {
   cursor: pointer;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

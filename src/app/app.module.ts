@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { BaseComponent } from './base.component';
 import { LayoutModule } from './layout/layout.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LayoutModule } from './layout/layout.module';
     DataModule,
     LayoutModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
