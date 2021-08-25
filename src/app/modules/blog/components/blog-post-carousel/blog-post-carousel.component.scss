@@ -28,6 +28,9 @@
     
     .introduction {
       line-height: 1.1rem;
+      max-height: 183px !important;
+      width: 100%;
+      overflow-y: hidden;
     }
 
     .arrows {

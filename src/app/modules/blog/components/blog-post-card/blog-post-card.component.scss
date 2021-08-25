@@ -18,6 +18,9 @@
 
   .introduction {
     color: $gray-5;
+    max-height: 90px;
+    width: 85%;
+    overflow-y: hidden;
   }
 
   .bottom {
