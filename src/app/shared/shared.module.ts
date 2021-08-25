@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { RouterModule } from '@angular/router';
 import { FormErrorAlertComponent } from './components/form-error-alert/form-error-alert.component';
-import { BlogPostCardComponent } from './components/blog-post-card/blog-post-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -20,7 +19,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     TextInputComponent,
     FormErrorAlertComponent,
-    BlogPostCardComponent,
   ],
   exports: [
     CommonModule,
@@ -30,7 +28,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     TextInputComponent,
     FormErrorAlertComponent,
-    BlogPostCardComponent,
   ],
 })
 export class SharedModule { }
