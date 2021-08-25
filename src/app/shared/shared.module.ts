@@ -5,6 +5,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
 import { RouterModule } from '@angular/router';
 import { FormErrorAlertComponent } from './components/form-error-alert/form-error-alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EllipsisModule } from 'ngx-ellipsis';
 
 
 
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     RouterModule,
     NgbModule,
+    EllipsisModule,
   ],
   declarations: [
     TextInputComponent,
@@ -24,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    EllipsisModule,
     NgbModule,
     RouterModule,
     TextInputComponent,
