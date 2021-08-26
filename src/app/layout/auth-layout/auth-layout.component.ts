@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/core/services/user.service';
 import { SignUpComponent } from 'src/app/modules/auth/pages/sign-up/sign-up.component';
 
 @Component({
@@ -10,7 +12,16 @@ export class AuthLayoutComponent implements OnInit {
 
   columnSize: number = 5;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+  ) {
+    userService.authenticatedUser$.subscribe((user) => {
+      if (user) {
+        this.router.navigateByUrl('/home');
+      }
+    });
+  }
 
   ngOnInit(): void {
   }

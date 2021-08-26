@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginRequest } from '../models/login-request';
 import { LoginResponse } from '../models/login-response';
 import { RegisterRequest } from '../models/register-request';
@@ -7,7 +7,7 @@ import { User } from '../models/user';
 import { UserUpdate } from '../models/user-update';
 import { ApiService } from './api.service';
 import { TokenService } from './token.service';
-import { startWith, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -23,15 +23,14 @@ export class UserService {
   private readonly USER_LIST_PATH = 'users'
   private readonly USER_DETAIL_UPDATE_DELETE_PATH = 'users/userId'
 
-  isAuthenticatedSubject: ReplaySubject<boolean> = 
-    new ReplaySubject<boolean>(1);
-  isAuthenticated$: Observable<boolean> = 
-    this.isAuthenticatedSubject.asObservable();
-  
   authenticatedUserSubject: BehaviorSubject<User> = 
     new BehaviorSubject<User>({} as User);
   authenticatedUser$: Observable<User> = 
-    this.authenticatedUserSubject.asObservable();
+    this.authenticatedUserSubject
+    .asObservable()
+    .pipe(
+      map((user) => user.id ? user : null),
+    );
 
   constructor(
     private api: ApiService,
@@ -42,9 +41,6 @@ export class UserService {
     if (userId) {
       this.getUser(userId).subscribe((user) => {
         this.authenticatedUserSubject.next(user);
-        this.isAuthenticated$ = this.isAuthenticated$.pipe(
-          startWith(this.tokenService.getToken() ? true : false)
-        );
       });
     }    
   }
@@ -63,7 +59,6 @@ export class UserService {
       ),
       tap((user) => {
         this.authService.saveAuthUserId(user.id);
-        this.isAuthenticatedSubject.next(true);
         this.authenticatedUserSubject.next(user);
       })
     );
@@ -76,7 +71,6 @@ export class UserService {
       tap(() => {
         this.tokenService.destroyToken();
         this.authService.destroyAuthUserId();
-        this.isAuthenticatedSubject.next(false);
         this.authenticatedUserSubject.next({} as User);
       }),
     );

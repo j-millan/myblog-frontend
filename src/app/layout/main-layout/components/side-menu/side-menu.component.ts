@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
 import { CommonService } from 'src/app/shared/service/common.service';
 
@@ -8,15 +7,15 @@ import { CommonService } from 'src/app/shared/service/common.service';
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss'],
 })
-export class SideMenuComponent extends BaseComponent {
+export class SideMenuComponent {
   @Input() isOpen: boolean = false;
 
+  currentUser$ = this.userService.authenticatedUser$;
+
   constructor(
-    public userService: UserService,
+    private userService: UserService,
     public commonService: CommonService,
-  ) { 
-    super(userService);
-  }
+  ) { }
 
   onLogoutClick(): void {
     this.userService.logout().subscribe();

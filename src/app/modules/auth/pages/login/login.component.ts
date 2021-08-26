@@ -10,7 +10,8 @@ import { AuthConstants } from '../../constants';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent 
+implements OnInit {
   loginForm: FormGroup;
   errors: any;
   readonly FIELDS = AuthConstants.LOGIN_FIELDS;
@@ -20,13 +21,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-  ) {
-    this.userService.isAuthenticated$.subscribe((auth) => {
-      if (auth) {
-        this.goToHome();
-      }
-    });
-  }
+  ) {  }
   
   ngOnInit(): void {
     this.buildForm();

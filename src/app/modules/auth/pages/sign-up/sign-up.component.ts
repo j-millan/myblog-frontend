@@ -19,13 +19,7 @@ export class SignUpComponent implements OnInit {
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
-  ) { 
-    this.userService.isAuthenticated$.subscribe((auth) => {
-      if (auth) {
-        this.router.navigateByUrl('/home');
-      }
-    });
-  }
+  ) {  }
 
   ngOnInit(): void {
     this.buildForm();
