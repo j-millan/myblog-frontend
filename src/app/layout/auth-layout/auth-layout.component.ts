@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
 import { SignUpComponent } from 'src/app/modules/auth/pages/sign-up/sign-up.component';
-import { CommonService } from 'src/app/shared/service/common.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-auth-layout',

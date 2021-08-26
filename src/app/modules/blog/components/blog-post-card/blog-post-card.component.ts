@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BlogPost } from 'src/app/data/models/blog-post';
-import { CommonService } from 'src/app/shared/service/common.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-blog-post-card',

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
 import { LoginRequest } from 'src/app/core/models/login-request';
 import { UserService } from 'src/app/core/services/user.service';
-import { CommonService } from 'src/app/shared/service/common.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 import { AuthConstants } from '../../constants';
 
 @Component({

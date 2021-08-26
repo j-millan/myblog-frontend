@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
-import { CommonService } from 'src/app/shared/service/common.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-side-menu',
