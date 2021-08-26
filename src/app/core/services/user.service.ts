@@ -38,18 +38,15 @@ export class UserService {
     private tokenService: TokenService,
     private authService: AuthService,
   ) {
-    this.isAuthenticated$ = this.isAuthenticated$
-      .pipe(
-        startWith(this.tokenService.getToken() ? true : false),
-      );
-    
     const userId = this.authService.getAuthUserId();
-    
     if (userId) {
-      this.getUser(userId).subscribe((user) =>
-        (this.authenticatedUserSubject.next(user)),
-      );
-    }
+      this.getUser(userId).subscribe((user) => {
+        this.authenticatedUserSubject.next(user);
+        this.isAuthenticated$ = this.isAuthenticated$.pipe(
+          startWith(this.tokenService.getToken() ? true : false)
+        );
+      });
+    }    
   }
 
   login(data: LoginRequest): Observable<User> {
