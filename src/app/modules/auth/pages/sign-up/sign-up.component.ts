@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
 import { AuthConstants } from '../../constants';
 
@@ -9,7 +10,9 @@ import { AuthConstants } from '../../constants';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent 
+extends BaseComponent
+implements OnInit {
 
   registerForm: FormGroup;
   formErrors: any = null;
@@ -19,7 +22,9 @@ export class SignUpComponent implements OnInit {
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
-  ) {  }
+  ) { 
+    super();
+  }
 
   ngOnInit(): void {
     this.buildForm();
@@ -39,14 +44,16 @@ export class SignUpComponent implements OnInit {
   attemptSignUp(): void {
     const requestData = this.registerForm.value;
 
-    this.userService
-      .register(requestData)
-      .subscribe(
-        (res) =>
-          (this.router.navigateByUrl('/auth/login')),
-        (res) =>
-          (this.formErrors = res.error),
-      );
+    this.subscriptions.push(
+      this.userService
+        .register(requestData)
+        .subscribe(
+          (res) =>
+            (this.router.navigateByUrl('/auth/login')),
+          (res) =>
+            (this.formErrors = res.error),
+        ),
+    );
   }
 
 }

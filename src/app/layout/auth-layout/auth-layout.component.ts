@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
 import { SignUpComponent } from 'src/app/modules/auth/pages/sign-up/sign-up.component';
 
@@ -8,7 +9,9 @@ import { SignUpComponent } from 'src/app/modules/auth/pages/sign-up/sign-up.comp
   templateUrl: './auth-layout.component.html',
   styleUrls: ['./auth-layout.component.scss']
 })
-export class AuthLayoutComponent implements OnInit {
+export class AuthLayoutComponent 
+extends BaseComponent
+implements OnInit {
 
   columnSize: number = 5;
 
@@ -16,11 +19,15 @@ export class AuthLayoutComponent implements OnInit {
     private userService: UserService,
     private router: Router,
   ) {
-    userService.authenticatedUser$.subscribe((user) => {
-      if (user) {
-        this.router.navigateByUrl('/home');
-      }
-    });
+    super();
+
+    this.subscriptions.push(
+      userService.authenticatedUser$.subscribe((user) => {
+        if (user) {
+          this.router.navigateByUrl('/home');
+        }
+      }),
+    );
   }
 
   ngOnInit(): void {
