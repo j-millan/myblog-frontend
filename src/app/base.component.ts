@@ -26,8 +26,4 @@ export class BaseComponent {
       ),
     );
   }
-
-  getFileUrl(path: string): string {
-    return constants.API_URL + path.substr(1);
-  }
 }

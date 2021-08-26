@@ -1,18 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
 import { BlogPost } from 'src/app/data/models/blog-post';
+import { CommonService } from 'src/app/shared/service/common.service';
 
 @Component({
   selector: 'app-blog-post-carousel',
   templateUrl: './blog-post-carousel.component.html',
   styleUrls: ['./blog-post-carousel.component.scss']
 })
-export class BlogPostCarouselComponent extends BaseComponent {
+export class BlogPostCarouselComponent {
   @Input() blogPosts: BlogPost[];
   currentIndex: number = 0;
   get currentPost(): BlogPost {
     return this.blogPosts[this.currentIndex];
   };
+
+  constructor(public commonService: CommonService) { }
 
   nextPost(): void {
     this.currentIndex = Math.max(
