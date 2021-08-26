@@ -6,6 +6,10 @@
         [routerLink]="[ '/home']"
       >myblog</h1>
 
+      <div class="alert alert-success" *ngIf="commonService.showSuccessfulRegistrationMessage">
+        Your account has been registered successfully!
+      </div>
+
       <router-outlet (activate)="componentActivated($event)"></router-outlet>
 
     </div>

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
+import { CommonService } from 'src/app/shared/service/common.service';
 import { AuthConstants } from '../../constants';
 
 @Component({
@@ -17,11 +18,14 @@ implements OnInit {
   registerForm: FormGroup;
   formErrors: any = null;
   readonly FIELDS = AuthConstants.SIGN_UP_FIELDS;
+
+  successfulRegister: boolean;
   
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
+    private commonService: CommonService,
   ) { 
     super();
   }
@@ -48,8 +52,10 @@ implements OnInit {
       this.userService
         .register(requestData)
         .subscribe(
-          (res) =>
-            (this.router.navigateByUrl('/auth/login')),
+          (res) => {
+            this.router.navigateByUrl('/auth/login');
+            this.commonService.showSuccessfulRegistrationMessage = true;
+          },
           (res) =>
             (this.formErrors = res.error),
         ),

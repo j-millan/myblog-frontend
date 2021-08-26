@@ -5,7 +5,8 @@ import { constants } from 'src/app/constants';
   providedIn: 'root'
 })
 export class CommonService {
-
+  showSuccessfulRegistrationMessage: boolean = false;
+  
   constructor() { }
 
   getFileUrl(path: string): string {
