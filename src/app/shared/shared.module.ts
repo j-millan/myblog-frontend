@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormErrorAlertComponent } from './components/form-error-alert/form-error-alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EllipsisModule } from 'ngx-ellipsis';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -21,6 +22,7 @@ import { EllipsisModule } from 'ngx-ellipsis';
   declarations: [
     TextInputComponent,
     FormErrorAlertComponent,
+    AlertComponent,
   ],
   exports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { EllipsisModule } from 'ngx-ellipsis';
     RouterModule,
     TextInputComponent,
     FormErrorAlertComponent,
+    AlertComponent,
   ],
 })
 export class SharedModule { }

@@ -6,9 +6,15 @@
         [routerLink]="[ '/home']"
       >myblog</h1>
 
-      <div class="alert alert-success" *ngIf="commonService.showSuccessfulRegistrationMessage">
-        Your account has been registered successfully!
-      </div>
+      <app-alert 
+        *ngIf="commonService.showSuccessfulRegistrationMessage"
+        (closeClicked)="commonService.showSuccessfulRegistrationMessage=false"
+        class="d-block my-3"
+      >
+        <small>
+          Your account has been created successfully!
+        </small>
+      </app-alert>
 
       <router-outlet (activate)="componentActivated($event)"></router-outlet>
 

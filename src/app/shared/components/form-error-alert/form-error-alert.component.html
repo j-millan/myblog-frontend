@@ -1,21 +1,15 @@
-<div class="alert alert-danger mb-1 mt-2 py-2" *ngIf="errors">
-  <div class="row px-3">
-    <div class="col icon">
-      <i class="fa fa-exclamation-circle"></i>
-    </div>
-    <div class="col pt-1">
-      <small 
-        *ngFor="let error of errors | keyvalue; last as isLast"
-        class="d-block"
-      >
-        <b>{{ error.key }}:</b> {{ error.value }}
-      </small>
-    </div>
-    <div class="col icon">
-      <i 
-        class="fa fa-times cursor-pointer"
-        (click)="errors=null"
-      ></i>
-    </div>
+<app-alert
+  [theme]="'danger'"
+  [icon]="'exclamation-circle'"
+  (closeClicked)="errors=null"
+  *ngIf="errors"
+>
+  <div class="pt-1">
+    <small 
+      *ngFor="let error of errors | keyvalue; last as isLast"
+      class="d-block is-12"
+    >
+      <b style="font-weight: 500;">{{ error.key }}:</b> {{ error.value }}
+    </small>
   </div>
-</div>
+</app-alert>

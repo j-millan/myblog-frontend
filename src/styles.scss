@@ -87,6 +87,11 @@ a {
     background: $red-1;
     color: $red-3;
   }
+
+  &.alert-success {
+    background: $green-1;
+    color: $green-2;
+  }
 }
 
 .img-circle {

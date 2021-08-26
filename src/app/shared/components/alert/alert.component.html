@@ -1,0 +1,16 @@
+<div class="alert alert-{{ theme }} mb-1 mt-2 py-2">
+  <div class="row px-3">
+    <div class="col icon">
+      <i class="fa fa-{{ icon }}"></i>
+    </div>
+    <div class="col">
+      <ng-content></ng-content>
+    </div>
+    <div class="col icon">
+      <i 
+        class="fa fa-times cursor-pointer"
+        (click)="onCloseClick()"
+      ></i>
+    </div>
+  </div>
+</div>
