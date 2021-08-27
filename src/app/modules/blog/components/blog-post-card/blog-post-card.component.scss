@@ -1,6 +1,7 @@
 @import 'src/assets/css/colors.scss';
 
 .card {
+
   .thumbnail {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -24,6 +25,10 @@
   }
 
   .bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
     .icons {
       color: $gray-5;
       float: left;
