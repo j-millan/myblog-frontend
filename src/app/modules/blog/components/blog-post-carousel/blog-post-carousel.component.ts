@@ -8,10 +8,18 @@ import { CommonService } from 'src/app/shared/services/common.service';
   styleUrls: ['./blog-post-carousel.component.scss']
 })
 export class BlogPostCarouselComponent {
-  @Input() blogPosts: BlogPost[];
+  @Input() set blogPosts(blogPosts: BlogPost[]) {
+    this._blogPosts = blogPosts.splice(4);
+  };
   
   currentIndex: number = 0;
   isPaused: boolean = false;
+
+  get blogPosts(): BlogPost[] {
+    return this._blogPosts;
+  }
+
+  _blogPosts: BlogPost[];
 
   get currentPost(): BlogPost {
     return this.blogPosts[this.currentIndex];
