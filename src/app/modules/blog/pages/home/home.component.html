@@ -1,5 +1,6 @@
 <!-- CONTENT -->
 <div class="row">
+  <h3 class="mb-3 header">Recently popular:</h3>
   <div class="col-8 pe-0" *ngIf="blogPosts$ | async as blogPosts">
     <div class="row mb-5">
       <div class="col">
@@ -10,10 +11,13 @@
     </div>
   
     <div class="posts">
-      <ng-container *ngFor="let category of popularCategories$ | async">
-        <h3>{{ category.name }}</h3>
+      <div 
+        *ngFor="let category of popularCategories$ | async"
+        class="mb-4"
+      >
+        <h3 class="header is-26">{{ category.name }}</h3>
         <app-blog-post-row [category]="category"></app-blog-post-row>
-      </ng-container>
+      </div>
     </div>
   
   </div>
