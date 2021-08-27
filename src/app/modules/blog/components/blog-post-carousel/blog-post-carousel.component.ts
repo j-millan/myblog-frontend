@@ -9,19 +9,36 @@ import { CommonService } from 'src/app/shared/services/common.service';
 })
 export class BlogPostCarouselComponent {
   @Input() blogPosts: BlogPost[];
+  
   currentIndex: number = 0;
+  isPaused: boolean = false;
+
   get currentPost(): BlogPost {
     return this.blogPosts[this.currentIndex];
   };
 
-  constructor(public commonService: CommonService) { }
+  constructor(public commonService: CommonService) { 
+    let nextPost = () => {
+      setTimeout(() => {
+        if (!this.isPaused) {
+          this.nextPost();
+        }
+
+        nextPost();
+      }, 8000);
+    }
+
+    nextPost();
+  }
 
   nextPost(): void {
-    this.currentIndex = Math.max(
-      0, 
-      Math.min(this.currentIndex + 1, this.blogPosts.length - 1)
-    );
-    console.debug(this.currentIndex)
+    if (this.currentIndex < this.blogPosts.length - 1) {
+      this.currentIndex += 1;
+    } else {
+      this.currentIndex = 0;
+    }
+
+    console.debug(this.currentIndex);
   }
 
   previousPost(): void {
@@ -29,7 +46,6 @@ export class BlogPostCarouselComponent {
       0,
       Math.min(this.currentIndex - 1, this.blogPosts.length - 1)
     );
-    console.debug(this.currentIndex)
   }
 
 }
