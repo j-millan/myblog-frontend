@@ -102,5 +102,25 @@ a {
   cursor: pointer;
 }
 
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track { 
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 84%); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 80%); 
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
