@@ -1,22 +1,27 @@
 <!-- CONTENT -->
-<div class="col-8 pe-0" *ngIf="blogPosts$ | async as blogPosts">
-  <div class="row mb-5">
-    <div class="col">
-      <app-blog-post-carousel
-        [blogPosts]="blogPosts"
-      ></app-blog-post-carousel>
+<div class="row">
+  <div class="col-8 pe-0" *ngIf="blogPosts$ | async as blogPosts">
+    <div class="row mb-5">
+      <div class="col">
+        <app-blog-post-carousel
+          [blogPosts]="blogPosts"
+        ></app-blog-post-carousel>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-4 mb-5" *ngFor="let blogPost of blogPosts">
-      <app-blog-post-card
-        [blogPost]="blogPost"
-      ></app-blog-post-card>
+  
+    <div class="row">
+      <div class="col-4 mb-5" *ngFor="let blogPost of blogPosts">
+        <app-blog-post-card
+          [blogPost]="blogPost"
+          class="d-block h-100"
+        ></app-blog-post-card>
+      </div>
     </div>
+  
   </div>
-
+  
+  <!-- ASIDE -->
+  <div class="col-4 ps-5">
+    <app-categories-menu class="d-block ms-5"></app-categories-menu>
+  </div>
 </div>
-
-<!-- ASIDE -->
-<div class="col-4"></div>

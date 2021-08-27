@@ -1,0 +1,29 @@
+@import 'src/assets/css/colors.scss';
+
+.card {
+  .title {
+    color: $gray-6;
+  }
+
+  .category {
+    background: $white;
+    
+    &:hover {
+      background: darken($color: $white, $amount: 2);
+    }
+    
+    .item {
+      font-size: 17px;
+      color: $gray-5;
+      
+      .icon {
+        width: 2rem;
+        text-align: center;
+      }
+
+      span {
+        left: 3.3rem;
+      } 
+    }
+  }
+}
