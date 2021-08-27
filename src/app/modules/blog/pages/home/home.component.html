@@ -9,13 +9,11 @@
       </div>
     </div>
   
-    <div class="row">
-      <div class="col-4 mb-5" *ngFor="let blogPost of blogPosts">
-        <app-blog-post-card
-          [blogPost]="blogPost"
-          class="d-block h-100"
-        ></app-blog-post-card>
-      </div>
+    <div class="posts">
+      <ng-container *ngFor="let category of popularCategories$ | async">
+        <h3>{{ category.name }}</h3>
+        <app-blog-post-row [category]="category"></app-blog-post-row>
+      </ng-container>
     </div>
   
   </div>

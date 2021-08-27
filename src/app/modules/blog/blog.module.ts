@@ -7,6 +7,7 @@ import { BlogPostCardComponent } from './components/blog-post-card/blog-post-car
 import { BlogPostCarouselComponent } from './components/blog-post-carousel/blog-post-carousel.component';
 import { BlogComponent } from './blog.component';
 import { CategoriesMenuComponent } from './components/categories-menu/categories-menu.component';
+import { BlogPostRowComponent } from './components/blog-post-row/blog-post-row.component';
 
 
 
@@ -17,6 +18,7 @@ import { CategoriesMenuComponent } from './components/categories-menu/categories
     BlogPostCarouselComponent,
     BlogComponent,
     CategoriesMenuComponent,
+    BlogPostRowComponent,
   ],
   imports: [
     ReactiveFormsModule,

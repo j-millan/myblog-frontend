@@ -37,8 +37,6 @@ export class BlogPostCarouselComponent {
     } else {
       this.currentIndex = 0;
     }
-
-    console.debug(this.currentIndex);
   }
 
   previousPost(): void {
