@@ -24,6 +24,8 @@
     .title {
       color: $gray-6;
       line-height: 1.4rem;
+      max-height: 44px;
+      overflow-y: hidden;
     }
     
     .introduction {

@@ -15,12 +15,14 @@
 
   .card-title {
     color: $gray-6; 
+    max-height: 60px;
+    overflow-y: hidden;
   }
 
   .introduction {
     color: $gray-5;
     max-height: 90px;
-    width: 85%;
+    width: 90%;
     overflow-y: hidden;
   }
 

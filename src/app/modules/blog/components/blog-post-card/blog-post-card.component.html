@@ -6,7 +6,7 @@
     ></div>
     
     <div class="pt-1 pb-2 px-2 mb-4 position-relative">
-      <p class="card-title mb-1 is-20">{{ blogPost.title }}</p>
+      <p class="card-title mb-1 is-20" [title]="blogPost.title" ellipsis>{{ blogPost.title }}</p>
       <p class="introduction is-12" ellipsis>
         {{ blogPost.introduction }}
       </p>
