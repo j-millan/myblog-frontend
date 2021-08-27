@@ -1,9 +1,10 @@
 <ng-scrollbar
-  [trackX]="true"
-  [trackY]="false"
-  [visibility]="hover"
+  track="horizontal"
+  [visibility]="'hover'"
+  [autoHeightDisabled]="false"
+  class="w-100"
 >
-  <div class="row pb-2">
+  <div class="row mb-4">
     <div class="col-4" *ngFor="let blogPost of blogPosts$ | async">
       <app-blog-post-card
         class="d-block h-100"

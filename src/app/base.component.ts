@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  templateUrl: '',
+  template: '',
 })
 export class BaseComponent implements OnDestroy {
   subscriptions: Subscription[] = [];
