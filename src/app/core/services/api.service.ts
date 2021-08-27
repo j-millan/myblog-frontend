@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { constants } from 'src/app/constants';
+import { SerializerService } from 'src/app/data/services/serializer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class ApiService {
   API_URL = constants.API_URL;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private serializer: SerializerService,
   ) { }
 
   replaceParams(url: string, params: any = {}): string {
@@ -19,6 +21,12 @@ export class ApiService {
     })
 
     return url;
+  }
+
+  getQuerystring(filter: any): string | void {
+    if (filter != {}) {
+      return this.serializer.objectToQuery(filter);
+    }
   }
 
   post<RT>(path: string, data: any = {}): Observable<RT> {
