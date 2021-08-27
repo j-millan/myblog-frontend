@@ -1,8 +1,14 @@
-<div class="row pb-2">
-  <div class="col-4" *ngFor="let blogPost of blogPosts$ | async">
-    <app-blog-post-card
-      class="d-block h-100"
-      [blogPost]="blogPost"
-    ></app-blog-post-card>
+<ng-scrollbar
+  [trackX]="true"
+  [trackY]="false"
+  [visibility]="hover"
+>
+  <div class="row pb-2">
+    <div class="col-4" *ngFor="let blogPost of blogPosts$ | async">
+      <app-blog-post-card
+        class="d-block h-100"
+        [blogPost]="blogPost"
+      ></app-blog-post-card>
+    </div>
   </div>
-</div>
+</ng-scrollbar>

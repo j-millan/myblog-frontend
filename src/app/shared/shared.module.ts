@@ -7,6 +7,7 @@ import { FormErrorAlertComponent } from './components/form-error-alert/form-erro
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EllipsisModule } from 'ngx-ellipsis';
 import { AlertComponent } from './components/alert/alert.component';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 
 
@@ -18,6 +19,7 @@ import { AlertComponent } from './components/alert/alert.component';
     RouterModule,
     NgbModule,
     EllipsisModule,
+    NgScrollbarModule,
   ],
   declarations: [
     TextInputComponent,
@@ -29,6 +31,7 @@ import { AlertComponent } from './components/alert/alert.component';
     FormsModule,
     ReactiveFormsModule,
     EllipsisModule,
+    NgScrollbarModule,
     NgbModule,
     RouterModule,
     TextInputComponent,
