@@ -9,7 +9,7 @@ import { CommonService } from 'src/app/shared/services/common.service';
 })
 export class BlogPostCarouselComponent {
   @Input() set blogPosts(blogPosts: BlogPost[]) {
-    this._blogPosts = blogPosts.splice(4);
+    this._blogPosts = blogPosts.slice(0, 4);
   };
   
   currentIndex: number = 0;
