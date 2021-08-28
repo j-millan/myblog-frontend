@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { BaseComponent } from 'src/app/base.component';
 import { UserService } from 'src/app/core/services/user.service';
 import { CommonService } from 'src/app/shared/services/common.service';
@@ -17,6 +18,7 @@ implements OnInit {
 
   registerForm: FormGroup;
   formErrors: any = null;
+  loading: boolean = false;
   readonly FIELDS = AuthConstants.SIGN_UP_FIELDS;
 
   successfulRegister: boolean;
@@ -46,11 +48,13 @@ implements OnInit {
   }
 
   attemptSignUp(): void {
+    this.loading = true;
     const requestData = this.registerForm.value;
 
     this.subscriptions.push(
       this.userService
         .register(requestData)
+        .pipe(finalize(() => (this.loading = false)))
         .subscribe(
           (res) => {
             this.router.navigateByUrl('/auth/login');
