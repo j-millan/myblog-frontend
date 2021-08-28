@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EllipsisModule } from 'ngx-ellipsis';
 import { AlertComponent } from './components/alert/alert.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { ButtonComponent } from './components/button/button.component';
 
 
 
@@ -25,6 +26,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TextInputComponent,
     FormErrorAlertComponent,
     AlertComponent,
+    ButtonComponent,
   ],
   exports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TextInputComponent,
     FormErrorAlertComponent,
     AlertComponent,
+    ButtonComponent,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

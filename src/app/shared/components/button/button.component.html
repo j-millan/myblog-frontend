@@ -1,0 +1,8 @@
+<button 
+  class="btn {{ classes }}" 
+  type="{{ type }}"
+  (click)="onClick()"
+>
+  <ng-content *ngIf="!loading"></ng-content>
+  <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+</button>
