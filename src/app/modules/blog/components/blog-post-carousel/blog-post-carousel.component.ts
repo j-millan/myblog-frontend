@@ -19,7 +19,7 @@ export class BlogPostCarouselComponent {
     return this._blogPosts;
   }
 
-  _blogPosts: BlogPost[];
+  _blogPosts: BlogPost[  ];
 
   get currentPost(): BlogPost {
     return this.blogPosts[this.currentIndex];
