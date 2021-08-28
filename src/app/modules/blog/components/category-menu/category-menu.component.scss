@@ -1,29 +1,43 @@
 @import 'src/assets/css/colors.scss';
 
 .card {
-  .title {
-    color: $gray-6;
-  }
-
-  .category {
-    background: $white;
+  .card-body {
+    overflow-y: hidden;
+    max-height: 600px;
+    transition: max-height 600ms ease !important;
     
-    &:hover {
-      background: darken($color: $white, $amount: 2);
+    &.collapsed {
+      max-height: 104px;
     }
-    
-    .item {
-      font-size: 17px;
-      color: $gray-5;
-      
-      .icon {
-        width: 2rem;
-        text-align: center;
-      }
 
-      span {
-        left: 3.3rem;
-      } 
+    .title {
+      color: $gray-6;
+    }
+  
+    .category {
+      background: none;
+      
+      &:hover {
+        background: darken($color: $white, $amount: 2);
+      }
+      
+      .item {
+        font-size: 17px;
+        color: $gray-5;
+        
+        .icon {
+          width: 2rem;
+          text-align: center;
+        }
+  
+        span {
+          left: 3.3rem;
+        }
+  
+        .fa-spin {
+          font-size: 20px;
+        }
+      }
     }
   }
 }

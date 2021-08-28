@@ -1,25 +1,38 @@
 <div class="card">
-  <p class="title is-20 py-2 px-3 mb-0">
-      Categories
-  </p>
-
-  <div class="category cursor-pointer" *ngFor="let category of categories$ | async">
-    <div class="separator"></div>
-    <span class="item ps-3 py-2 position-relative d-block">
-      <p class="d-inline-block icon mb-0">
-        <i class="fa fa-{{ category.icon }}"></i>
-      </p>
-      <span class="ms-2 position-absolute">{{ category.name }}</span>
-    </span>
-  </div>
-
-  <div class="category cursor-pointer">
-    <div class="separator"></div>
-    <span class="item ps-3 py-2 position-relative d-block">
-      <p class="d-inline-block icon mb-0">
-        <i class="fa fa-ellipsis-h"></i>
-      </p>
-      <span class="ms-2 position-absolute">More</span>
-    </span>
+  <div class="card-body p-0" [ngClass]="{'collapsed': !categories}">
+    <p class="title is-20 py-2 px-3 mb-0">
+        Categories
+    </p>
+  
+    <ng-container *ngIf="categories">
+      <div class="category cursor-pointer" *ngFor="let category of categories">
+        <div class="separator"></div>
+        <span class="item ps-3 py-2 position-relative d-block">
+          <p class="d-inline-block icon mb-0">
+            <i class="fa fa-{{ category.icon }}"></i>
+          </p>
+          <span class="ms-2 position-absolute">{{ category.name }}</span>
+        </span>
+      </div>
+  
+      <div class="category cursor-pointer">
+        <div class="separator"></div>
+        <span class="item ps-3 py-2 position-relative d-block">
+          <p class="d-inline-block icon mb-0">
+            <i class="fa fa-ellipsis-h"></i>
+          </p>
+          <span class="ms-2 position-absolute">More</span>
+        </span>
+      </div>
+    </ng-container>
+    
+    <ng-container *ngIf="!categories">
+      <div class="category">
+        <div class="separator"></div>
+        <p class="mb-0 py-3 text-center item">
+          <i class="fa fa-spinner fa-spin"></i>
+        </p>
+      </div>
+    </ng-container>
   </div>
 </div>
