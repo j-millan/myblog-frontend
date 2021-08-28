@@ -22,9 +22,12 @@
 
       <app-form-error-alert [errors]="errors"></app-form-error-alert>
       
-      <button type="submit" class="btn btn-blue w-100 mt-3">
-        LOG IN
-      </button>
+      <app-button
+        class="d-block w-100"
+        type="submit"
+        classes="btn btn-blue w-100 mt-3"
+        [loading]="loading"
+      >LOG IN</app-button>
     </form>
   </div>
 </div>
