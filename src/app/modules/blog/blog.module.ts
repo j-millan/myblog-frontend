@@ -6,7 +6,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogPostCardComponent } from './components/blog-post-card/blog-post-card.component';
 import { BlogPostCarouselComponent } from './components/blog-post-carousel/blog-post-carousel.component';
 import { BlogComponent } from './blog.component';
-import { CategoriesMenuComponent } from './components/categories-menu/categories-menu.component';
+import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { BlogPostRowComponent } from './components/blog-post-row/blog-post-row.component';
 
 
@@ -17,7 +17,7 @@ import { BlogPostRowComponent } from './components/blog-post-row/blog-post-row.c
     BlogPostCardComponent,
     BlogPostCarouselComponent,
     BlogComponent,
-    CategoriesMenuComponent,
+    CategoryMenuComponent,
     BlogPostRowComponent,
   ],
   imports: [

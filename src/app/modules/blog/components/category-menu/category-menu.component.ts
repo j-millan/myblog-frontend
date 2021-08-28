@@ -3,11 +3,11 @@ import { map } from 'rxjs/operators';
 import { BlogCategoryService } from 'src/app/data/services/blog-category.service';
 
 @Component({
-  selector: 'app-categories-menu',
-  templateUrl: './categories-menu.component.html',
-  styleUrls: ['./categories-menu.component.scss']
+  selector: 'app-category-menu',
+  templateUrl: './category-menu.component.html',
+  styleUrls: ['./category-menu.component.scss']
 })
-export class CategoriesMenuComponent {
+export class CategoryMenuComponent {
   categories$ = this.blogCategoryService
     .getBlogCategories()
     .pipe(
