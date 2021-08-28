@@ -23,14 +23,15 @@
 
     .title {
       color: $gray-6;
-      line-height: 1.4rem;
-      max-height: 44px;
+      line-height: 1.2rem;
+      font-size: 17px;
+      max-height: 65px;
       overflow-y: hidden;
     }
     
     .introduction {
       line-height: 1.1rem;
-      max-height: 183px !important;
+      max-height: 163px !important;
       width: 100%;
       overflow-y: hidden;
     }
