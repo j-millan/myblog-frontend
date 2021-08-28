@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BlogPost } from 'src/app/data/models/blog-post';
 import { CommonService } from 'src/app/shared/services/common.service';
 
@@ -7,8 +7,13 @@ import { CommonService } from 'src/app/shared/services/common.service';
   templateUrl: './blog-post-card.component.html',
   styleUrls: ['./blog-post-card.component.scss'],
 })
-export class BlogPostCardComponent {
+export class BlogPostCardComponent implements OnInit {
   @Input() blogPost: BlogPost;
+  slug: string;
 
   constructor(public commonService: CommonService) {  }
+
+  ngOnInit(): void {
+    this.slug = `${this.blogPost.slug}-${this.blogPost.id}`;    
+  }
 }

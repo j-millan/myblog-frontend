@@ -1,0 +1,50 @@
+@import 'src/assets/css/colors.scss';
+
+.fa-spinner {
+  color: $gray-5;
+}
+
+.title {
+  color: $gray-7;
+  line-height: 2.3rem;
+}
+
+.pub-date {
+  color: $gray-5;
+}
+
+.body {
+  color: #646262;
+}
+
+.author-summary {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  
+  .header {
+    color: $gray-7;
+  }
+
+  .author-picture {
+    max-width: 40%;
+    border-radius: 50%;
+    padding-bottom: 40%;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .author-name {
+    color: $gray-7;
+    width: 60%;
+  }
+
+  .username {
+    color: $gray-5;
+  }
+
+  .bio {
+    color: #949393;
+  }
+}

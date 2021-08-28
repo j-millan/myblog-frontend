@@ -22,7 +22,10 @@
         ></i>
       </p>
 
-      <span class="read-more cursor-pointer px-2 is-10">
+      <span 
+        [routerLink]="[ '/blog-post/'+ slug ]"
+        class="read-more cursor-pointer px-2 is-10"
+      >
         Read more
       </span>
     </div>
