@@ -5,6 +5,7 @@
     <div class="row mb-5">
       <div class="col">
         <app-blog-post-carousel
+          *ngIf="blogPosts?.length"
           [blogPosts]="blogPosts"
         ></app-blog-post-carousel>
       </div>
