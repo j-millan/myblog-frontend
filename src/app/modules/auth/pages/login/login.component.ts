@@ -44,8 +44,8 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
   attemptLogin(): void {
     this.loading = true;
     const requestData: LoginRequest = this.loginForm.value;
-    
-    this.subscriptions.push(
+
+    this.subscriptions.add(
       this.userService.login(requestData)
         .pipe(finalize(() => (this.loading = false)))
         .subscribe(
@@ -59,7 +59,8 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/home');
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
     this.commonService.showSuccessfulRegistrationMessage = false;
   }
 }

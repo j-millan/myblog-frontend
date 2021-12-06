@@ -5,13 +5,11 @@ import { Subscription } from 'rxjs';
   template: '',
 })
 export class BaseComponent implements OnDestroy {
-  subscriptions: Subscription[] = [];
+  subscriptions: Subscription = new Subscription();
 
-  constructor() { 
-
-  }
+  constructor() { }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((sub) => (sub.unsubscribe()));    
+    this.subscriptions.unsubscribe();
   }
 }

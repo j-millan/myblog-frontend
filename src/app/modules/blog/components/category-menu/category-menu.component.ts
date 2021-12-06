@@ -12,13 +12,11 @@ import { BlogCategoryService } from 'src/app/data/services/blog-category.service
 export class CategoryMenuComponent extends BaseComponent {
   categories: BlogCategory[];
   loading: boolean = true;
-  
-  constructor(
-    private blogCategoryService: BlogCategoryService
-  ) { 
+
+  constructor(private blogCategoryService: BlogCategoryService) {
     super();
 
-    this.subscriptions.push(
+    this.subscriptions.add(
       this.blogCategoryService.getBlogCategories()
         .pipe(delay(1000)) // delay is for aesthetical purposes only
         .subscribe((categories) => {

@@ -12,7 +12,7 @@ import { AuthConstants } from '../../constants';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent 
+export class SignUpComponent
 extends BaseComponent
 implements OnInit {
 
@@ -22,13 +22,13 @@ implements OnInit {
   readonly FIELDS = AuthConstants.SIGN_UP_FIELDS;
 
   successfulRegister: boolean;
-  
+
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
     private commonService: CommonService,
-  ) { 
+  ) {
     super();
   }
 
@@ -39,11 +39,11 @@ implements OnInit {
   private buildForm(): void {
     const group = {};
     const emptyRequiredField = [null, Validators.required];
-    
+
     Object.values(this.FIELDS).forEach((fieldName) =>
       (group[fieldName] = emptyRequiredField),
     );
-    
+
     this.registerForm = this.fb.group(group);
   }
 
@@ -51,7 +51,7 @@ implements OnInit {
     this.loading = true;
     const requestData = this.registerForm.value;
 
-    this.subscriptions.push(
+    this.subscriptions.add(
       this.userService
         .register(requestData)
         .pipe(finalize(() => (this.loading = false)))

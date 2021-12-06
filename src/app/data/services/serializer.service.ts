@@ -6,16 +6,16 @@ import { Injectable } from '@angular/core';
 export class SerializerService {
   objectToQuery(object: { [key: string]: any }): string {
     let query = '?';
-    for (let key in object) {
+    for (const key in object) {
       if (this.isValid(object, key)) {
-        const symbol = query == '?' ? '' : '&';
+        const symbol = query === '?' ? '' : '&';
         query += `${symbol}${key}=${object[key]}`;
       }
     }
     return query;
   }
 
-  private isValid(object: { [k: string]: any }, key: string) {
+  private isValid(object: { [k: string]: any }, key: string): boolean {
     return object[key] !== '' && object[key] !== null;
   }
 }

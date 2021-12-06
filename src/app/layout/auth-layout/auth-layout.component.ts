@@ -21,7 +21,7 @@ export class AuthLayoutComponent extends BaseComponent {
   ) {
     super();
 
-    this.subscriptions.push(
+    this.subscriptions.add(
       userService.authenticatedUser$.subscribe((user) => {
         if (user) {
           this.router.navigateByUrl('/home');

@@ -20,7 +20,7 @@ export class FormService {
     const newObj: any = {};
 
     Object.keys(errors).forEach((key) => {
-      let newValue = this.replaceError(errors[key]);
+      const newValue = this.replaceError(errors[key]);
 
       let newKey = this.REPLACE_NAMES[key] ? this.REPLACE_NAMES[key] : key;
 

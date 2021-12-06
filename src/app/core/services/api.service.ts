@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { constants } from 'src/app/constants';
 import { SerializerService } from 'src/app/data/services/serializer.service';
@@ -18,24 +18,24 @@ export class ApiService {
   replaceParams(url: string, params: any = {}): string {
     Object.keys(params).forEach((key) => {
       url = url.replace(key, params[key]);
-    })
+    });
 
     return url;
   }
 
   getQuerystring(filter: any): string | void {
-    if (filter != {}) {
+    if (filter !== {}) {
       return this.serializer.objectToQuery(filter);
     }
   }
 
   post<RT>(path: string, data: any = {}): Observable<RT> {
-    const url = `${this.API_URL}${path}`
+    const url = `${this.API_URL}${path}`;
     return this.http.post<RT>(url, data);
   }
 
   get<RT>(path: string): Observable<RT> {
-    const url = `${this.API_URL}${path}`
+    const url = `${this.API_URL}${path}`;
     return this.http.get<RT>(url);
   }
 

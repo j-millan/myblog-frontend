@@ -15,17 +15,17 @@ import { AuthService } from './auth.service';
 })
 export class UserService {
   private readonly URL_PREFIX = 'auth/';
-  
-  private readonly LOGIN_PATH = 'login'
-  private readonly REGISTER_PATH = 'register'
-  private readonly LOGOUT_PATH = 'logout'
 
-  private readonly USER_LIST_PATH = 'users'
-  private readonly USER_DETAIL_UPDATE_DELETE_PATH = 'users/userId'
+  private readonly LOGIN_PATH = 'login';
+  private readonly REGISTER_PATH = 'register';
+  private readonly LOGOUT_PATH = 'logout';
 
-  authenticatedUserSubject: BehaviorSubject<User> = 
+  private readonly USER_LIST_PATH = 'users';
+  private readonly USER_DETAIL_UPDATE_DELETE_PATH = 'users/userId';
+
+  authenticatedUserSubject: BehaviorSubject<User> =
     new BehaviorSubject<User>({} as User);
-  authenticatedUser$: Observable<User> = 
+  authenticatedUser$: Observable<User> =
     this.authenticatedUserSubject
     .asObservable()
     .pipe(
@@ -42,7 +42,7 @@ export class UserService {
       this.getUser(userId).subscribe((user) => {
         this.authenticatedUserSubject.next(user);
       });
-    }    
+    }
   }
 
   login(data: LoginRequest): Observable<User> {
@@ -54,7 +54,7 @@ export class UserService {
         const token = response.token;
         this.tokenService.setToken(token);
       }),
-      switchMap((response) => 
+      switchMap((response) =>
         this.getUser(response.user.id),
       ),
       tap((user) => {
@@ -80,7 +80,7 @@ export class UserService {
     return this.api.post<User>(
       `${this.URL_PREFIX}${this.REGISTER_PATH}`,
       data,
-    )
+    );
   }
 
   getUsers(): Observable<User[]> {
@@ -90,7 +90,7 @@ export class UserService {
   getUser(userId: number): Observable<User> {
     const path = this.api.replaceParams(
       `${this.URL_PREFIX}${this.USER_DETAIL_UPDATE_DELETE_PATH}`,
-      { userId: userId }
+      { userId }
     );
 
     return this.api.get<User>(path);
@@ -100,7 +100,7 @@ export class UserService {
     const path = this.api.replaceParams(
       `${this.URL_PREFIX}${this.USER_DETAIL_UPDATE_DELETE_PATH}`,
       { userId },
-    )
+    );
 
     return this.api.put<User>(path, data);
   }
@@ -108,7 +108,7 @@ export class UserService {
   deleteUser(userId: number): Observable<void> {
     const path = this.api.replaceParams(
       `${this.URL_PREFIX}${this.USER_DETAIL_UPDATE_DELETE_PATH}`,
-      { userId }
+      { userId },
     );
 
     return this.api.delete(path);

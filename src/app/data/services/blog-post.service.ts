@@ -12,7 +12,7 @@ export class BlogPostService {
 
   readonly BLOG_POST_LIST_CREATE_PATH = 'blog-posts';
   readonly BLOG_POST_DETAIL_UPDATE_DELETE_PATH = 'blog-posts/blogPostId';
-  
+
   constructor(
     private api: ApiService,
   ) { }
@@ -20,14 +20,14 @@ export class BlogPostService {
   getBlogPost(blogPostId: number): Observable<BlogPost> {
     const path = this.api.replaceParams(
       this.BLOG_POST_DETAIL_UPDATE_DELETE_PATH,
-      { blogPostId: blogPostId },
+      { blogPostId },
     );
 
     return this.api.get<BlogPost>(path);
   }
 
   getBlogPosts(filter?: BlogPostFilter): Observable<BlogPost[]> {
-    let queryString = this.api.getQuerystring(filter);
+    const queryString = this.api.getQuerystring(filter);
     return this.api.get<BlogPost[]>(
       this.BLOG_POST_LIST_CREATE_PATH + queryString,
     );

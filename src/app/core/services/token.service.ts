@@ -7,7 +7,7 @@ export class TokenService {
 
   constructor() { }
 
-  private readonly TOKEN_STORAGE_KEY = 'authToken'
+  private readonly TOKEN_STORAGE_KEY = 'authToken';
 
   getToken(): string {
     return window.localStorage[this.TOKEN_STORAGE_KEY];
